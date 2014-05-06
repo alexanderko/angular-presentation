@@ -2,7 +2,9 @@
 
 angular.module('ngPresentationApp')
   .controller('SlideCtrl', function ($scope, $templateCache) {
-    $scope.slides = [];
+    $scope.slides = [
+      'views/slides/one-dot-rule.html'
+    ];
 
     function addSlide(url, content) {
       $templateCache.put(url, content);

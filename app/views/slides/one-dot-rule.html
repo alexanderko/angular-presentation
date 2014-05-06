@@ -1,0 +1,24 @@
+<h3>Правило одной точки при работе со $scope</h3>
+
+<p>Всегда используйте <em>user.name</em> вместо <em>user_name</em></p>
+
+<script type="text/ng-template" id="user-name.html">
+<div class="row">
+  <div class="col-md-6 col-sm-6">
+    user_name
+    <input ng-model="user_name">
+    <span ng-bind="user_name"></span>
+  </div>
+  <div class="col-md-6 col-sm-6">
+    user.name
+    <input ng-model="user.name">
+    <span ng-bind="user.name"></span>
+  </div>
+</div>
+</script>
+
+<div class="row">
+  <span class="col-md-6 col-sm-6" ng-init="user_name = 'Alex'" ng-bind="user_name"></span>
+  <span class="col-md-6 col-sm-6" ng-init="user.name = 'Alex'"ng-bind="user.name"></span>
+</div>
+<ng-include src="'user-name.html'"></ng-include>
