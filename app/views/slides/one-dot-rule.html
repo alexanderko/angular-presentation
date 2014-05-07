@@ -2,23 +2,28 @@
 
 <p>Всегда используйте <em>user.name</em> вместо <em>user_name</em></p>
 
-<script type="text/ng-template" id="user-name.html">
-<div class="row">
-  <div class="col-md-6 col-sm-6">
-    user_name
-    <input ng-model="user_name">
-    <span ng-bind="user_name"></span>
+<div source>
+  <script type="text/ng-template" id="user-name.html">
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <em>user_name</em>
+      <input ng-model="user_name">
+      <span ng-bind="user_name"></span>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <em>user.name</em>
+      <input ng-model="user.name">
+      <span ng-bind="user.name"></span>
+    </div>
   </div>
-  <div class="col-md-6 col-sm-6">
-    user.name
-    <input ng-model="user.name">
-    <span ng-bind="user.name"></span>
-  </div>
-</div>
-</script>
+  </script>
 
-<div class="row">
-  <span class="col-md-6 col-sm-6" ng-init="user_name = 'Alex'" ng-bind="user_name"></span>
-  <span class="col-md-6 col-sm-6" ng-init="user.name = 'Alex'"ng-bind="user.name"></span>
+  <div class="row">
+    <span class="col-md-6 col-sm-6" ng-init="user_name = 'Alex'" ng-bind="user_name"></span>
+    <span class="col-md-6 col-sm-6" ng-init="user.name = 'Alex'"ng-bind="user.name"></span>
+  </div>
+  <ng-include src="'user-name.html'"></ng-include>
 </div>
-<ng-include src="'user-name.html'"></ng-include>
+
+<div include-source>
+</div>
