@@ -21,9 +21,9 @@ angular.module('ngPresentationApp')
       scope: {},
       compile: function (element, attrs) {
         return function (scope, element, attrs) {
-          element.find('code').html(
-            hljs.highlight('html', sourceCache.get('source')).value
-          )
+          var code = hljs.highlight('html', sourceCache.get('source')).value;
+          code = code.replace(/&amp;/g, '&');
+          element.find('code').html(code);
         }
       }
     }

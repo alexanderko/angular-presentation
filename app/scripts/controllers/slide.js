@@ -3,7 +3,8 @@
 angular.module('ngPresentationApp')
   .controller('SlideCtrl', function ($scope, $templateCache) {
     $scope.slides = [
-      'views/slides/one-dot-rule.html'
+      'views/slides/one-dot-rule.html',
+      'views/slides/ternary-operator.html'
     ];
 
     function addSlide(url, content) {

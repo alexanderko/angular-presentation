@@ -1,0 +1,15 @@
+<h3>Альтернатива тернарного оператора</h3>
+
+<p>Angular не поддерживает тернарный оператор <em>cond ? val_true : val_false</em> в выражениях. Вместо него можно использовать <em>cond && val_true || val_false</em>.</p>
+
+<div source>
+  <label>
+    <input ng-model="active" type="checkbox">
+    Active
+  </label>
+  <span ng-bind="active && 'Active' || 'Inactive'"></span>
+</div>
+
+<div include-source>
+</div>
+
