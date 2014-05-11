@@ -3,17 +3,23 @@
 angular.module('ngPresentationApp')
   .controller('SlideCtrl', function ($scope, $templateCache) {
     $scope.slides = [
-      'views/slides/one-dot-rule.html',
-      'views/slides/ternary-operator.html'
+      'one-dot-rule.html',
+      'ternary-operator.html',
+      'array-in-expression.html'
     ];
+  })
+  .controller('itemsController', ['$scope', function($scope) {
+    var first = {name: 'first'};
+    var second = {name: 'second'};
+    var third = {name: 'third'};
 
-    function addSlide(url, content) {
-      $templateCache.put(url, content);
-      $scope.slides.push(url);
+    $scope.itemsFn = function () {
+      return [
+        first,
+        second,
+        third
+      ];
     }
 
-    addSlide('first', 'first template');
-    addSlide('second', 'second template');
-    addSlide('third', 'third template');
-
-  });
+    $scope.items = $scope.itemsFn();
+  }]);

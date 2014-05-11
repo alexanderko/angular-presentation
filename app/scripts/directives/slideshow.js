@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ngPresentationApp')
-  .directive('slideshow', function () {
+  .directive('slideshow', function ($location) {
     return {
       templateUrl: 'views/slideshow.html',
       restrict: 'E',
@@ -27,7 +27,12 @@ angular.module('ngPresentationApp')
           d.off('keydown', keydownHandler);
         });
 
-        var currentIndex = 0;
+        var slide = $location.search().slide;
+        var currentIndex = scope.slides.indexOf(slide);
+        if (currentIndex == -1) {
+          currentIndex = 0;
+          updateLocation();
+        }
 
         function isFirstSlide() {
           return currentIndex == 0;
@@ -37,18 +42,28 @@ angular.module('ngPresentationApp')
           return currentIndex == scope.slides.length - 1;
         }
 
+        function updateLocation() {
+          $location.search({slide: currentSlide()});
+        }
+
+        function currentSlide () {
+          return scope.slides[currentIndex];
+        }
+
         scope.prevSlide = function () {
           if (isFirstSlide()) return;
           currentIndex--;
+          updateLocation();
         }
 
         scope.nextSlide = function () {
           if (isLastSlide()) return;
           currentIndex++;
+          updateLocation();
         }
 
         scope.currentSlideUrl = function () {
-          return scope.slides[currentIndex];
+          return attrs.basePath + currentSlide();
         }
       }
     };

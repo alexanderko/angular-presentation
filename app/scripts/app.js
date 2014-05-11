@@ -12,9 +12,10 @@ angular
       })
       .when('/slide', {
         templateUrl: 'views/slide.html',
-        controller: 'SlideCtrl'
+        controller: 'SlideCtrl',
+        reloadOnSearch: false
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/slide'
       });
   });
