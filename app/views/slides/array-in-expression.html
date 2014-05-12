@@ -1,0 +1,28 @@
+<h3>ng-repeat по объектам</h3>
+
+<p>Не используйте в ng-repeat функции, которые возвращают новые объекты. Это приводит к зацикливанию проверок выражений.</p>
+
+<div source ng-controller="itemsController">
+  <label>
+    <input type="checkbox" ng-model="dinamic">
+    Пересоздавать масив
+  </label>
+  <button ng-click="">Do digest</button>
+  <ul>
+    <li ng-repeat="item in (dinamic && itemsFn() || items)" ng-bind="item.name"></li>
+  </ul>
+</div>
+
+<include-source></include-source>
+
+<include-source language="javascript">
+  $scope.itemsFn = function () {
+    return [
+      {name: 'first'},
+      {name: 'second'},
+      {name: 'third'}
+    ];
+  }
+
+  $scope.items = $scope.itemsFn();
+</include-source>

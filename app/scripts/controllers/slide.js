@@ -9,15 +9,12 @@ angular.module('ngPresentationApp')
     ];
   })
   .controller('itemsController', ['$scope', function($scope) {
-    var first = {name: 'first'};
-    var second = {name: 'second'};
-    var third = {name: 'third'};
 
     $scope.itemsFn = function () {
       return [
-        first,
-        second,
-        third
+        {name: 'first'},
+        {name: 'second'},
+        {name: 'third'}
       ];
     }
 

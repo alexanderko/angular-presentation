@@ -17,13 +17,20 @@ angular.module('ngPresentationApp')
     return {
       replace: true,
       restrict: 'EA',
-      template: '<pre class="source"><code></code></pre>',
+      transclude: true,
+      template: '<pre class="source"><code ng-transclude></code></pre>',
       scope: {},
       compile: function (element, attrs) {
         return function (scope, element, attrs) {
-          var code = hljs.highlight('html', sourceCache.get('source')).value;
-          code = code.replace(/&amp;/g, '&');
-          element.find('code').html(code);
+          var language = attrs.language || 'html';
+          var codeElement = element.find('code');
+          if (codeElement.html().trim()) {
+            hljs.highlightBlock(codeElement[0]);
+          } else {
+            var code = hljs.highlight(language, sourceCache.get('source')).value;
+            code = code.replace(/&amp;/g, '&');
+            codeElement.html(code);
+          }
         }
       }
     }
