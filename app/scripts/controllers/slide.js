@@ -3,6 +3,7 @@
 angular.module('ngPresentationApp')
   .controller('SlideCtrl', function ($scope, $templateCache) {
     $scope.slides = [
+      'two-way-data-binding.html',
       'one-dot-rule.html',
       'ternary-operator.html',
       'array-in-expression.html'
