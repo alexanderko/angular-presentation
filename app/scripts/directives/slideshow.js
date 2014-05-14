@@ -4,6 +4,7 @@ angular.module('ngPresentationApp')
   .directive('slideshow', function ($location) {
     return {
       templateUrl: 'views/slideshow.html',
+      replace: true,
       restrict: 'E',
       scope: {
         slides: '='

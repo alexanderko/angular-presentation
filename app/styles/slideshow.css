@@ -1,16 +1,64 @@
 .slideshow {
+  margin: 0 80px 0 210px;
+}
 
+.slideshow label, .slideshow em {
+  /*font-family: 'Futura Bk BT';*/
+  font-family: monospace;
+}
+
+.input-group label, .input-group input[type="text"] {
+  height: 32px;
+  float: left;
+}
+
+.input-group label {
+  font-size: 22px;
+  color: #b2b3b3;
+  margin: 0px;
+  border: 1px solid #21263b;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  width: 140px;
+  padding-left: 10px;
+  background-color: #21263b;
+  font-weight: normal;
 }
 
 .slideshow em {
-  background-color: #eee;
-  padding: 2px 4px;
-  display: inline-block;
+  font-size: 22px;
   font-style: normal;
-  font-family: monospace;
-  border-radius: 5px;
+  color: #21263b;
+  border: 0px solid #bfc0c2;
+  border-radius: 3px;
+  background-color: #bfc0c2;
+  padding: 3px;
+
+  display: inline-block;
+}
+
+.input-group input[type="text"] {
+      font-size: 18px;
+      font-weight: lighter;
+      font-style: italic;
+      color: #616264;
+      padding-left: 5px;
+      padding-right: 5px;
+      border: 1px solid #b2b3b3;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      width: 216px;
+}
+
+.input-group:after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .source {
   margin-top: 20px;
 }
+
+
+/* content styles */
