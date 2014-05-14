@@ -1,28 +1,38 @@
 <h3>Контроллеры</h3>
 
-<p>Контроллеры используються передачи данных и обработчиков событий в шаблон через $scope.</p>
+<p>Контроллеры используються для передачи данных и обработчиков событий в шаблон через <em>$scope</em>.</p>
 
-<div source ng-controller="itemsController">
-  <label>
-    <input type="checkbox" ng-model="dinamic">
-    Пересоздавать масив
-  </label>
-  <button ng-click="">Do digest</button>
-  <ul>
-    <li ng-repeat="item in (dinamic && itemsFn() || items)" ng-bind="item.name"></li>
-  </ul>
+<div source>
+  <div ng-controller="taskController">
+    <form>
+      <div class="input-group">
+        <label>Задача</label>
+        <input type="text" ng-model="task.title" autofocus="true">
+      <button type="sabmit" ng-click="addTask()">Добавить задачу</button>
+      </div>
+    </form>
+    <ul>
+      <li ng-repeat="task in tasks" ng-class="{'done': task.done}">
+        <input type="checkbox" ng-model="task.done"> {{task.title}}
+      </li>
+    </ul>
+  </div>
 </div>
 
 <include-source></include-source>
 
 <include-source language="javascript">
-  $scope.itemsFn = function () {
-    return [
-      {name: 'first'},
-      {name: 'second'},
-      {name: 'third'}
-    ];
-  }
+controller('taskController', ['$scope', function($scope) {
 
-  $scope.items = $scope.itemsFn();
+    $scope.tasks = [
+      {
+        title: "Потготовить слайды"
+      }
+    ]
+
+    $scope.addTask = function () {
+      $scope.tasks.push(angular.copy($scope.task));
+      $scope.task.title = '';
+    }
+  }])
 </include-source>
