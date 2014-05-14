@@ -12,7 +12,7 @@ angular.module('ngPresentationApp')
       link: function postLink(scope, element, attrs) {
         var d = angular.element(document);
         var keydownHandler = function (event) {
-          if (event.target.nodeName.match(/input/i))
+          if (event.target.nodeName.match(/input/i) && event.ctrlKey != 1)
             return;
           scope.$apply(function() {
             switch (event.which) {
