@@ -20,4 +20,17 @@ angular.module('ngPresentationApp')
     }
 
     $scope.items = $scope.itemsFn();
+  }])
+  .controller('tasksController', ['$scope', function($scope) {
+
+    $scope.tasks = [
+      {
+        title: "Потготовить слайды"
+      }
+    ]
+
+    $scope.addTask = function () {
+      $scope.tasks.push(angular.copy($scope.task));
+      $scope.task.name = '';
+    }
   }]);
