@@ -5,6 +5,7 @@ angular.module('ngPresentationApp')
     $scope.slides = [
       'two-way-data-binding.html',
       'controllers.html',
+      'filters.html',
       'one-dot-rule.html',
       'ternary-operator.html',
       'array-in-expression.html'
@@ -35,5 +36,15 @@ angular.module('ngPresentationApp')
         $scope.tasks.push(angular.copy($scope.task));
         $scope.task.title = '';
       }
+    }
+  }])
+  .controller('timeController', ['$scope', '$timeout', 'dateFilter', function($scope, $timeout, dateFilter) {
+    function updateTime() {
+      $scope.timeNow = new Date();
+      $timeout(updateTime, 1000);
+    }
+    updateTime();
+    $scope.showDate = function () {
+      $scope.formattedDate = dateFilter(new Date(), $scope.format);
     }
   }]);

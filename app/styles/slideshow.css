@@ -81,5 +81,27 @@ button:active {
   text-decoration: line-through;
 }
 
+ul#date-info {
+  list-style: none;
+  line-height: 28px;
+  font-size: 16px;
+  width: 310px;
+  padding-left: 0;
+}
+
+ul#date-info li {
+  margin-bottom: 10px;
+}
+
+ul#date-info li em {
+  width: 170px;
+  float: right;
+}
+
+ul#date-info li:after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
 /* content styles */

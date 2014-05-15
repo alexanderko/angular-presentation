@@ -1,0 +1,35 @@
+<h3>Фильтры</h3>
+
+<p>Фильтры позволяют форматировать или преобразововать данные перед выводом прямо из шаблона. Также они могут быть вызваны программно.</p>
+
+<div source>
+  <div ng-controller="timeController">
+    <ul id="date-info">
+      <li>Сегодня: <em>{{timeNow | date:'d MMMM, yyyy'}}</em></li>
+      <li>Сейчас: <em>{{timeNow | date:'HH:mm:ss'}}</em></li>
+    </ul>
+    <form>
+      <div class="input-group">
+        <label>Формат</label>
+        <input type="text" ng-model="format" />
+        <button type="submit" ng-click="showDate()">Применить</button>
+      </div>
+    </form>
+    {{formattedDate}}
+  </div>
+</div>
+
+<include-source></include-source>
+
+<include-source language="javascript">
+controller('timeController', ['$scope', '$timeout', 'dateFilter', function($scope, $timeout, dateFilter) {
+    function updateTime() {
+      $scope.timeNow = new Date();
+      $timeout(updateTime, 1000);
+    }
+    updateTime();
+    $scope.showDate = function () {
+      $scope.formattedDate = dateFilter(new Date(), $scope.format);
+    }
+  }])
+</include-source>
