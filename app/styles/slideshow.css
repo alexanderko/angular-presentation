@@ -59,7 +59,24 @@
 .source {
   margin-top: 20px;
 }
-
+button {
+  height: 32px;
+  margin-left: 5px;
+  background: #21263b;
+  border: 0;
+  border-radius: 3px;
+  color: #b2b3b3;
+  outline: none;
+  box-shadow: 1px 1px 1px o rgba(0,0,0,0.5)
+}
+button:hover,
+button:active {
+  background: #b2b3b3;
+  color: #21263b;
+}
+button:active {
+  box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.8) inset;
+}
 .done {
   text-decoration: line-through;
 }
