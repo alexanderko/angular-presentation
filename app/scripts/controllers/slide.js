@@ -31,7 +31,9 @@ angular.module('ngPresentationApp')
     ]
 
     $scope.addTask = function () {
-      $scope.tasks.push(angular.copy($scope.task));
-      $scope.task.title = '';
+      if ($scope.task.title.trim()) {
+        $scope.tasks.push(angular.copy($scope.task));
+        $scope.task.title = '';
+      }
     }
   }]);
