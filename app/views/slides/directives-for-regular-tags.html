@@ -1,0 +1,28 @@
+<h3>Директивы для обычных тэгов</h3>
+
+<p>Иногда может быть полезно расширить уже существующий стандартный тег. К примеру ссылку.</p>
+
+<include-source language="javascript">
+.directive('a', ['$location', function ($location) {
+  return {
+    priority: 0,
+    replace: false,
+    restrict: 'E',
+    link: function (scope, element, attrs) {
+      scope.$watch('a', function () {
+        var locale = $location.path().substr(1, 2).toLowerCase();
+        var prefix = '/' + locale;
+        var expr = new RegExp('^/(ru|en)/');
+        var link = attrs.ngHref || attrs.href;
+
+        if(attrs.skiplocale != "true") {
+          if (link && (link.indexOf('/') == 0) && !expr.test(link)) {
+            attrs.$set('ngHref', prefix + link);
+            attrs.$set('href', prefix + link);
+          }
+        }
+      });
+    }
+  }
+}])
+</include-source>

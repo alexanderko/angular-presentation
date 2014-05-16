@@ -7,6 +7,7 @@ angular.module('ngPresentationApp')
       'controllers.html',
       'filters.html',
       'directives.html',
+      'directives-for-regular-tags.html',
       'one-dot-rule.html',
       'ternary-operator.html',
       'array-in-expression.html'
