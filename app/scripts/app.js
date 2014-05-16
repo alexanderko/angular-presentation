@@ -3,6 +3,7 @@
 angular
   .module('ngPresentationApp', [
     'ngRoute'
+//    'ngAnimate'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -14,6 +15,11 @@ angular
         templateUrl: 'views/slide.html',
         controller: 'SlideCtrl',
         reloadOnSearch: false
+      })
+      .when('/animate', {
+          templateUrl: 'views/animate-slides.html',
+          controller: 'AnimateCtrl',
+          reloadOnSearch: false
       })
       .otherwise({
         redirectTo: '/slide'

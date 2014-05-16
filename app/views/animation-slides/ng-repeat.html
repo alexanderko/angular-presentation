@@ -1,0 +1,29 @@
+<h3>ngRepeat</h3>
+
+
+<div class="well" style="margin-top: 30px; width: 200px; overflow: hidden;" ng-controller="AnimateCtrl">
+    <form class="form-search">
+        <div class="input-append">
+            <input type="text" ng-model="search" class="search-query" style="width: 80px">
+            <button type="submit" class="btn">Search</button>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+            <li ng-animate="'animate'" ng-repeat="name in names | filter:search">
+                <a href="#"> {{name}} </a>
+            </li>
+        </ul>
+    </form>
+</div>
+
+
+
+<div source ng-controller="itemsController">
+    <!--{{repeatItems}}-->
+</div>
+
+
+<include-source></include-source>
+<!---->
+<include-source language="javascript">
+
+</include-source>

@@ -17,7 +17,7 @@ angular.module('ngPresentationApp')
         {name: 'second'},
         {name: 'third'}
       ];
-    }
+    };
 
     $scope.items = $scope.itemsFn();
   }]);

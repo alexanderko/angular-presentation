@@ -1,0 +1,76 @@
+<h3>Angular ng-animate</h3>
+
+<p>Директива ng-animate предоставляет возможность использовать JavaScript, CSS, CSS3 keyframe анимации.</p>
+
+<p>Анимации автоматически применяются к директивам: ngRepeat, ngInclude, ngIf, ngSwitch, ngShow, ngHide, ngView, ngClass.</p>
+
+<p>Каждая из директив поддерживает определенные события анимации.</p>
+
+<table class="ng-scope table table-bordered table-striped code-table">
+    <thead>
+    <tr>
+        <th>Директива</th>
+        <th>Поддерживаемая анимация</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><a>ngRepeat</a></td>
+        <td>enter, leave and move</td>
+    </tr>
+    <tr>
+        <td><a>ngView</a></td>
+        <td>enter and leave</td>
+    </tr>
+    <tr>
+        <td><a>ngInclude</a></td>
+        <td>enter and leave</td>
+    </tr>
+    <tr>
+        <td><a>ngSwitch</a></td>
+        <td>enter and leave</td>
+    </tr>
+    <tr>
+        <td><a>ngIf</a></td>
+        <td>enter and leave</td>
+    </tr>
+    <tr>
+        <td><a>ngClass</a></td>
+        <td>add and remove (the CSS class(es) present)</td>
+    </tr>
+    <tr>
+        <td><a>ngShow</a> &amp; <a>ngHide</a></td>
+        <td>add and remove (the ng-hide class value)</td>
+    </tr>
+    <tr>
+        <td><a>form</a> &amp; <a>ngModel</a></td>
+        <td>add and remove (dirty, pristine, valid, invalid &amp; all other validations)</td>
+    </tr>
+    <tr>
+        <td><a>ngMessages</a></td>
+        <td>add and remove (ng-active &amp; ng-inactive)</td>
+    </tr>
+    <tr>
+        <td><a>ngMessage</a></td>
+        <td>enter and leave</td>
+    </tr>
+    </tbody>
+</table>
+
+<div source ng-controller="itemsController">
+
+</div>
+
+<!--<include-source></include-source>-->
+
+<!--<include-source language="javascript">-->
+    <!--$scope.itemsFn = function () {-->
+    <!--return [-->
+    <!--{name: 'first'},-->
+    <!--{name: 'second'},-->
+    <!--{name: 'third'}-->
+    <!--];-->
+    <!--}-->
+
+    <!--$scope.items = $scope.itemsFn();-->
+<!--</include-source>-->
