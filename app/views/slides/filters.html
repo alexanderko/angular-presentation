@@ -19,17 +19,22 @@
   </div>
 </div>
 
-<include-source></include-source>
-
-<include-source language="javascript">
-controller('timeController', ['$scope', '$timeout', 'dateFilter', function($scope, $timeout, dateFilter) {
-    function updateTime() {
-      $scope.timeNow = new Date();
-      $timeout(updateTime, 1000);
-    }
-    updateTime();
-    $scope.showDate = function () {
-      $scope.formattedDate = dateFilter(new Date(), $scope.format);
-    }
-  }])
-</include-source>
+<tabset>
+  <tab heading="Шаблон">
+    <include-source></include-source>
+  </tab>
+  <tab heading="Контроллер">
+    <include-source language="javascript">
+    controller('timeController', ['$scope', '$timeout', 'dateFilter', function($scope, $timeout, dateFilter) {
+        function updateTime() {
+          $scope.timeNow = new Date();
+          $timeout(updateTime, 1000);
+        }
+        updateTime();
+        $scope.showDate = function () {
+          $scope.formattedDate = dateFilter(new Date(), $scope.format);
+        }
+      }])
+    </include-source>
+  </tab>
+</tabset>

@@ -2,7 +2,8 @@
 
 angular
   .module('ngPresentationApp', [
-    'ngRoute'
+    'ngRoute',
+    'ui.bootstrap.tabs'
   ])
   .config(function ($routeProvider) {
     $routeProvider

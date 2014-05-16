@@ -55,9 +55,38 @@
   display: table;
 }
 
-.source {
+.slideshow .source {
   margin-top: 20px;
 }
+
+.slideshow pre.source {
+  font-size: 16px;
+}
+
+.slideshow pre.source .hljs {
+  background-color: transparent;
+}
+
+.slideshow .nav-tabs {
+  margin-top: 20px;
+  border-bottom-width: 0;
+  margin-left: 20px;
+}
+
+.slideshow .nav-tabs a {
+  cursor: pointer;
+}
+
+.slideshow .nav-tabs .active a,
+.slideshow .nav-tabs .active a:hover {
+  background-color: #f5f5f5;
+  cursor: default;
+}
+
+.slideshow .tab-content .source {
+  margin-top: 0;
+}
+
 button {
   font-size: 16px;
   /*font-family: 'Futura Bk BT';*/
@@ -83,6 +112,11 @@ button:active {
   text-decoration: line-through;
 }
 
+.greeting {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
 ul#date-info {
   list-style: none;
   line-height: 28px;
@@ -105,5 +139,7 @@ ul#date-info li:after {
   clear: both;
   display: table;
 }
+
+
 
 /* content styles */

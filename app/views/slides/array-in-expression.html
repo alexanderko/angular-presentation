@@ -13,16 +13,21 @@
   </ul>
 </div>
 
-<include-source></include-source>
+<tabset>
+  <tab heading="Шаблон">
+    <include-source></include-source>
+  </tab>
+  <tab heading="Контроллер">
+    <include-source language="javascript">
+      $scope.itemsFn = function () {
+        return [
+          {name: 'first'},
+          {name: 'second'},
+          {name: 'third'}
+        ];
+      }
 
-<include-source language="javascript">
-  $scope.itemsFn = function () {
-    return [
-      {name: 'first'},
-      {name: 'second'},
-      {name: 'third'}
-    ];
-  }
-
-  $scope.items = $scope.itemsFn();
-</include-source>
+      $scope.items = $scope.itemsFn();
+    </include-source>
+  </tab>
+</tabset>

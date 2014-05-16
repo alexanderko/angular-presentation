@@ -19,20 +19,26 @@
   </div>
 </div>
 
-<include-source></include-source>
+<tabset>
+  <tab heading="Шаблон">
+    <include-source></include-source>
+  </tab>
+  <tab heading="Контроллер">
+    <include-source language="javascript">
+    controller('taskController', ['$scope', function($scope) {
 
-<include-source language="javascript">
-controller('taskController', ['$scope', function($scope) {
+        $scope.tasks = [
+          {
+            title: "Потготовить слайды"
+          }
+        ]
 
-    $scope.tasks = [
-      {
-        title: "Потготовить слайды"
-      }
-    ]
+        $scope.addTask = function () {
+          $scope.tasks.push(angular.copy($scope.task));
+          $scope.task.title = '';
+        }
+      }])
+    </include-source>
+  </tab>
+</tabset>
 
-    $scope.addTask = function () {
-      $scope.tasks.push(angular.copy($scope.task));
-      $scope.task.title = '';
-    }
-  }])
-</include-source>

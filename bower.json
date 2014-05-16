@@ -8,7 +8,8 @@
     "jquery": "~1.11.0",
     "bootstrap": "~3.0.3",
     "angular-route": "1.2.15",
-    "angular-i18n": "~1.2.16"
+    "angular-i18n": "~1.2.16",
+    "bootstrap-ui": "~0.11.0"
   },
   "devDependencies": {
     "angular-mocks": "1.2.15",

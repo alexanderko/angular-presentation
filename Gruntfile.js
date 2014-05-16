@@ -66,7 +66,7 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        hostname: '0.0.0.0',
         livereload: 35729
       },
       livereload: {
@@ -288,19 +288,28 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      uiTemplates: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/bower_components/bootstrap-ui/template',
+        dest: '.tmp/template/',
+        src: 'tabs/*'
       }
     },
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles'
+        'copy:styles',
+        'copy:uiTemplates'
       ],
       test: [
-        'copy:styles'
+        'copy:styles',
+        'copy:uiTemplates'
       ],
       dist: [
         'copy:styles',
+        'copy:uiTemplates',
         'imagemin',
         'svgmin'
       ]
