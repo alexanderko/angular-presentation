@@ -13,7 +13,7 @@
 }
 
 .input-group label {
-  font-size: 22px;
+  font-size: 20px;
   color: #b2b3b3;
   margin: 0px;
   border: 1px solid #21263b;
@@ -26,15 +26,14 @@
 }
 
 .slideshow em {
-  font-size: 22px;
+  font-size: 20px;
   font-style: normal;
   color: #21263b;
-  border: 0px solid #bfc0c2;
   border-radius: 3px;
-  background-color: #bfc0c2;
+  background-color: #d6d7d8;
   padding: 3px;
-
   display: inline-block;
+  height: 30px;
 }
 
 .input-group input[type="text"] {
@@ -60,22 +59,25 @@
   margin-top: 20px;
 }
 button {
-  height: 32px;
-  margin-left: 5px;
-  background: #21263b;
+  font-size: 16px;
+  /*font-family: 'Futura Bk BT';*/
+  height: 30px;
+  margin-left: 10px;
+  background: #d6d7d8;
   border: 0;
   border-radius: 3px;
-  color: #b2b3b3;
+  color: #8b8895;
   outline: none;
-  box-shadow: 1px 1px 1px o rgba(0,0,0,0.5)
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3)
 }
-button:hover,
-button:active {
-  background: #b2b3b3;
-  color: #21263b;
+button:hover {
+  background: #21263b;
+  color: #b2b3b3;
 }
 button:active {
-  box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.8) inset;
+  background: #d6d7d8;
+  color: #8b8895;
+  box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.8) inset;
 }
 .done {
   text-decoration: line-through;
