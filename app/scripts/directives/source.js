@@ -20,23 +20,21 @@ angular.module('ngPresentationApp')
       transclude: true,
       template: '<pre class="source"><code ng-transclude></code></pre>',
       scope: {},
-      compile: function (element, attrs) {
-        return function (scope, element, attrs) {
-          var language = attrs.language || 'html';
-          var codeElement = element.find('code');
-          if (codeElement.html().trim()) {
-            hljs.highlightBlock(codeElement[0]);
+      link: function postLink (scope, element, attrs) {
+        var language = attrs.language || 'html';
+        var codeElement = element.find('code');
+        if (codeElement.html().trim()) {
+          hljs.highlightBlock(codeElement[0]);
+        } else {
+          var source;
+          if (attrs.url) {
+            source = $templateCache.get(attrs.url)[1];
           } else {
-            var source;
-            if (attrs.url) {
-              source = $templateCache.get(attrs.url)[1];
-            } else {
-              source = sourceCache.get('source');
-            }
-            var code = hljs.highlight(language, source).value;
-            code = code.replace(/&amp;/g, '&');
-            codeElement.html(code);
+            source = sourceCache.get('source');
           }
+          var code = hljs.highlight(language, source).value;
+          code = code.replace(/&amp;/g, '&');
+          codeElement.html(code);
         }
       }
     }
