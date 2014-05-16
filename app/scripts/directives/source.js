@@ -13,7 +13,7 @@ angular.module('ngPresentationApp')
       }
     };
   })
-  .directive('includeSource', function (sourceCache) {
+  .directive('includeSource', function (sourceCache, $templateCache) {
     return {
       replace: true,
       restrict: 'EA',
@@ -27,7 +27,13 @@ angular.module('ngPresentationApp')
           if (codeElement.html().trim()) {
             hljs.highlightBlock(codeElement[0]);
           } else {
-            var code = hljs.highlight(language, sourceCache.get('source')).value;
+            var source;
+            if (attrs.url) {
+              source = $templateCache.get(attrs.url)[1];
+            } else {
+              source = sourceCache.get('source');
+            }
+            var code = hljs.highlight(language, source).value;
             code = code.replace(/&amp;/g, '&');
             codeElement.html(code);
           }
