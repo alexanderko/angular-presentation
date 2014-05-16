@@ -2,8 +2,8 @@
 
 angular
   .module('ngPresentationApp', [
-    'ngRoute'
-//    'ngAnimate'
+    'ngRoute',
+    'ngAnimate'
   ])
   .config(function ($routeProvider) {
     $routeProvider
