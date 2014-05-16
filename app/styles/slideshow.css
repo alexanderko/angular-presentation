@@ -73,8 +73,9 @@
   margin-left: 20px;
 }
 
-.slideshow .nav-tabs a {
+.slideshow .nav-tabs :not(.active) a {
   cursor: pointer;
+  color: #8b8895;
 }
 
 .slideshow .nav-tabs .active a,

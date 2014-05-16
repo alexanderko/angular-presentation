@@ -6,6 +6,7 @@ angular.module('ngPresentationApp')
       'two-way-data-binding.html',
       'controllers.html',
       'filters.html',
+      'directives.html',
       'one-dot-rule.html',
       'ternary-operator.html',
       'array-in-expression.html'

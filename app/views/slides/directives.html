@@ -1,0 +1,83 @@
+<h3>Директивы</h3>
+
+<p>Директивы позволяют создавать собвственные компоненты повторного использования. Также они необходимы, если вы захотите програмно влиять на DOM или подписываться на события.</p>
+
+<tabset>
+  <tab heading="Шаблон">
+    <include-source url="views/slideshow.html" language="html">
+    </include-source>
+  </tab>
+  <tab heading="JavaScript">
+    <include-source language="javascript">
+    .directive('slideshow', function ($location) {
+    return {
+      templateUrl: 'views/slideshow.html',
+      replace: true,
+      restrict: 'E',
+      scope: {
+        slides: '='
+      },
+      link: function postLink(scope, element, attrs) {
+        var d = angular.element(document);
+        var keydownHandler = function (event) {
+          if (event.target.nodeName.match(/input/i) && event.ctrlKey != 1)
+            return;
+          scope.$apply(function() {
+            switch (event.which) {
+              case 37: scope.prevSlide(); break;
+              case 39: scope.nextSlide(); break;
+              default: break;
+            }
+          });
+        };
+        d.on('keydown', keydownHandler);
+
+        scope.$on('$destroy', function () {
+          d.off('keydown', keydownHandler);
+        });
+
+        var slide = $location.search().slide;
+        var currentIndex = scope.slides.indexOf(slide);
+        if (currentIndex == -1) {
+          currentIndex = 0;
+          updateLocation();
+        }
+
+        function isFirstSlide() {
+          return currentIndex == 0;
+        }
+
+        function isLastSlide() {
+          return currentIndex == scope.slides.length - 1;
+        }
+
+        function updateLocation() {
+          $location.search({slide: currentSlide()});
+        }
+
+        function currentSlide () {
+          return scope.slides[currentIndex];
+        }
+
+        scope.prevSlide = function () {
+          if (isFirstSlide()) return;
+          currentIndex--;
+          updateLocation();
+        }
+
+        scope.nextSlide = function () {
+          if (isLastSlide()) return;
+          currentIndex++;
+          updateLocation();
+        }
+
+        scope.currentSlideUrl = function () {
+          return attrs.basePath + currentSlide();
+        }
+      }
+    };
+  });
+
+    </include-source>
+  </tab>
+</tabset>
