@@ -1,0 +1,13 @@
+<h3>Смена URL без перегрузки контроллера</h3>
+
+<p>Если вам не по душе параметры поиска в URL</p>
+
+<include-source language="javascript">
+var lastRoute = $route.current;
+var currentController = $route.current.$$route.controller;
+scope.$on('$locationChangeSuccess', function () {
+    if ($route.current.$$route.controller === currentController) {
+        $route.current = lastRoute;
+    }
+});
+</include-source>

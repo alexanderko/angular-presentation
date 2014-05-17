@@ -10,7 +10,8 @@ angular.module('ngPresentationApp')
       'directives-for-regular-tags.html',
       'one-dot-rule.html',
       'ternary-operator.html',
-      'array-in-expression.html'
+      'array-in-expression.html',
+      'no-reload.html'
     ];
   })
   .controller('itemsController', ['$scope', function($scope) {
