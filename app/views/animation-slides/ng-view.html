@@ -1,0 +1,23 @@
+<h3>ngView</h3>
+
+<p>Директива позволяет добавлять анимационные эффекты на появление/исчезание элементов, у которых есть указана директива ng-view</p>
+
+<div class="well" style="margin-top: 30px; width: 100%; overflow: hidden;">
+    Анимации <input type="checkbox" ng-model="enableAnimations">
+    <form class="form-search" ng-init="enableAnimations = true" ng-class="{'animate': enableAnimations}">
+        <input  type="checkbox" ng-model="w">
+        <div style="height: 200px; width: 200px; background-color: black;" ng-view="w"></div>
+    </form>
+</div>
+
+<include-source>
+.animate .animate-enter {
+  -webkit-transition: 1s linear all; /* Chrome */
+  transition: 1s linear all;
+  opacity: 0;
+}
+
+.animate .animate-enter.animate-enter-active {
+  opacity: 1;
+}
+</include-source>

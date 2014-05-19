@@ -4,10 +4,11 @@ angular.module('ngPresentationApp')
     .controller('AnimateCtrl', function ($scope) {
         $scope.slides = [
             'intro.html',
-            'ng-repeat.html'
+            'ng-repeat.html',
+            'ng-view.html'
         ];
 
-        $scope.names=['Igor Minar', 'Brad Green', 'Dave Geddes', 'Naomi Black', 'Greg Weber', 'Dean Sofer', 'Wes Alvaro', 'John Scott', 'Daniel Nadasi'];
+        $scope.names=['Foo', 'Bar', 'Baz', 'John Doe', 'John Smith', 'Jane Doe', 'John Scott'];
 
         $scope.addRepeatItem = function(item) {
             $scope.repeatItems.push(item);
